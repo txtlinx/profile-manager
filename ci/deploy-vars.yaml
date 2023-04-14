@@ -1,0 +1,25 @@
+deployType: eks
+eksData:
+  image: "dbs-platform-profile-manager"
+  env:
+    development:
+      account: "974125096498"
+      cluster_name: "eks-dev-front-nv"
+      cluster_region: "us-east-1"
+      # secrets:
+      #   secret1:
+      #     secret_name: "Password/dev/abaqus/investment-porfolio-analysis-db"
+    quality:
+      account: "480682203842"
+      cluster_name: "eks-qa-front-nv"
+      cluster_region: "us-east-1"
+      # secrets:
+      #   secret1:
+      #     secret_name: "Password/qa/abaqus/investment-porfolio-analysis-db"
+    production:
+      account: "055342247576"
+      cluster_name: "eks-prd-bcl-nv"
+      cluster_region: "us-east-1"
+      # secrets:
+      #   secret1:
+      #     secret_name: "Password/prod/abaqus/investment-porfolio-analysis-db"

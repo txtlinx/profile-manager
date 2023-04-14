@@ -1,0 +1,110 @@
+replicaCount: 1
+
+serviceAccount: dbs-platform-access-prd-sa
+
+volumes:
+  list:
+  - name: secrets-store-inline
+    csi:
+      driver: secrets-store.csi.k8s.io
+      readOnly: true
+      volumeAttributes:
+        secretProviderClass: "secrets-provider-dbs-platform-access"
+
+
+nameOverride: ""
+fullnameOverride: ""
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+container:
+  image:
+    pullPolicy: Always
+  ports:
+    - name: http
+      containerPort: 8000
+      protocol: TCP
+  volumeMounts:
+    list:
+      - name: secrets-store-inline
+        mountPath: "/mnt/secrets-store"
+        readOnly: true
+
+vars:
+  enabled: true
+  list:
+    - name: DJANGO_DEBUG
+      value: "False"
+    - name: USE_DOCKER
+      value: "YES"
+    - name: REDIS_PORT
+      value: "6379"
+    - name: POSTGRES_USER
+      value: usr_bd_inversiones
+    - name: POSTGRES_PASSWORD_FROM_SECRET
+      valueFrom:
+        secretKeyRef:
+          name: secrets-prd-bcl-investment-porfolio-analysis-abaqus
+          key: postgres-password
+    - name: DATABASE_URL
+      value: postgres://abaqus:kzC7tYrAnu23EU@rdspgre-prd-inversiones-01.cjhbjkmrhh2d.us-east-1.rds.amazonaws.com:5432/abaqus
+
+
+secrets:
+
+livenessEnabler: true
+livenessProbe:
+  httpGet:
+    path: /health
+    port: http
+  initialDelaySeconds: 10
+  periodSeconds: 10
+
+readinessEnabler: true
+readinessProbe:
+  httpGet:
+    path: /health
+    port: http
+  initialDelaySeconds: 10
+  periodSeconds: 10
+
+service:
+  type: ClusterIP
+  port: 8000
+
+ingress:
+  ingressClassName: ingress-internal
+  enabled: true
+  rules:
+    host: dbs-platform-access-mf-prd-ms.itauchile.cl
+    path: "/login"
+  annotations:
+    alb.ingress.kubernetes.io/target-type: 'ip'
+    alb.ingress.kubernetes.io/scheme: internal
+    alb.ingress.kubernetes.io/group.name: alb-prd-bff-mf-priv
+    alb.ingress.kubernetes.io/healthcheck-path: /health
+
+resources:
+  limits:
+    cpu: 800m
+    memory: 512Mi
+
+  requests:
+    cpu: 400m
+    memory: 256Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 5
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 70
+  # targetMemoryUtilizationPercentage: 80

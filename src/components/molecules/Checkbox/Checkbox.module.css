@@ -1,0 +1,50 @@
+.Container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+}
+
+.Checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.Checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 5px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.Checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    height:12px;
+    width:6px;
+    border: solid #000512;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.Checkbox:checked ~ .Checkmark{
+    background-color: transparent;
+    color:#000512
+
+}
+.Checkbox:checked ~ .Checkmark::after {
+    display: block;
+}

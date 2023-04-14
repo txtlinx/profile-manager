@@ -1,0 +1,23 @@
+project:
+  language: JavaScript
+  framework:
+    name: "React"
+    version: 17.0.0
+  mainFile: "app.tsc"
+  unitTestFramework: "Jest"
+  unitTestConfig:
+    testInstruction: "test"
+  unitTestFolder: "src/__test__"
+  dockerPath: ""
+vars:
+  development:
+  quality:
+  production:
+secrets:
+  development:
+  quality:
+  production:
+docker-args:
+  development:
+  quality:
+  production:

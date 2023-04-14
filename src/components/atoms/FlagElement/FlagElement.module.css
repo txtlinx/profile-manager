@@ -1,0 +1,8 @@
+.FlagElement{
+ display:flex;
+ gap:10px;   
+}
+.FlagElement img{
+    width:30px;
+    height:auto;
+}

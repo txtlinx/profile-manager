@@ -1,0 +1,110 @@
+replicaCount: 2
+
+# serviceAccount: dbs-platform-profile-manager-dev-sa
+
+# volumes:
+#   list:
+#   - name: secrets-store-inline
+#     csi:
+#       driver: secrets-store.csi.k8s.io
+#       readOnly: true
+#       volumeAttributes:
+#         secretProviderClass: "secrets-provider-dbs-platform-profile-manager"
+
+
+nameOverride: ""
+fullnameOverride: ""
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+container:
+  image:
+    pullPolicy: Always
+  ports:
+    - name: http
+      containerPort: 80
+      protocol: TCP
+  # volumeMounts:
+  #   list:
+  #     - name: secrets-store-inline
+  #       mountPath: "/mnt/secrets-store"
+  #       readOnly: true
+
+vars:
+  enabled: true
+  list:
+    - name: REACT_APP_DOMAIN_NAME
+      value: ".clouditauchile.cl"
+    # - name: USE_DOCKER
+    #   value: "YES"
+    # - name: REDIS_PORT
+    #   value: "6379"
+    # - name: POSTGRES_USER
+    #   value: usr_bd_inversiones
+    # - name: POSTGRES_PASSWORD_FROM_SECRET
+    #   valueFrom:
+    #     secretKeyRef:
+    #       name: secrets-dev-bcl-investment-porfolio-analysis-abaqus
+    #       key: postgres-password
+    # - name: DATABASE_URL
+    #   value: postgres://abaqus:kzC7tYrAnu23EU@rdspgre-dev-inversiones-01.cjhbjkmrhh2d.us-east-1.rds.amazonaws.com:5432/abaqus
+
+
+secrets:
+
+livenessEnabler: false
+livenessProbe:
+  exec:
+    command:
+      - cat
+      - /tmp/liveness-check
+  initialDelaySeconds: 10
+  periodSeconds: 10
+
+readinessEnabler: false
+readinessProbe:
+  exec:
+    command:
+      - cat
+      - /tmp/liveness-check
+  initialDelaySeconds: 10
+  periodSeconds: 10
+
+service:
+  type: ClusterIP
+  port: 80
+
+
+ingress:
+  ingressClassName: nginx-internal
+  enabled: true
+  rules:
+    host: banking.dbs-platform-dev.clouditauchile.cl
+    path: "/profile-manager(/|$)(.*)"
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+
+resources:
+  limits:
+    cpu: 300m
+    memory: 512Mi
+
+  requests:
+    cpu: 200m
+    memory: 256Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 2
+  maxReplicas: 4
+  targetCPUUtilizationPercentage: 75
+  # targetMemoryUtilizationPercentage: 80

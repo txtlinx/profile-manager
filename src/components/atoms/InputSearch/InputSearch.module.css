@@ -1,0 +1,38 @@
+.InputSearch{
+    display:flex;
+    gap:0px;
+    background-color: white;
+    border: 1px solid #89837F;
+    border-radius: 4px;
+    align-items: center;
+    height: 48px;
+    width:280px;
+    padding-left:16px;
+    padding-right: 11px;
+    position: relative;
+}
+.separator{
+    width: 1px;
+    height:27px;
+    background-color: #89837F;
+    position:absolute;
+    right: 38px;
+}
+.InputSearch input{
+    font-size:16px;
+    border:none;
+}
+.InputSearch input:focus-visible{
+    outline: none;
+}
+.IconContainer{
+    position:absolute;
+    right:11px;
+    height:16px;
+}
+@media screen and (max-width: 375px) {
+    .InputSearch{
+        width: calc(100%)
+    }
+    
+}
