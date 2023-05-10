@@ -19,7 +19,6 @@ describe('<Button />', () => {
     const button = screen.getByTestId('test-button');
     expect(button).toBeDisabled();
   });
-
   test('Render component CLICK', () => {
     const handleClick = jest.fn();
     render(

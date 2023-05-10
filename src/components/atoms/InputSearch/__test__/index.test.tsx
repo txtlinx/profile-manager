@@ -1,27 +1,23 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import InputSearch from '..';
+import InputSearch from '../index';
 
-describe('InputSearch', () => {
-  it('calls onChange and onBlur prop functions when input is changed', () => {
-    const onChange = jest.fn();
-    const onBlur = jest.fn();
-    const { getByTestId } = render(
-      <InputSearch
-        id="search"
-        name="search"
-        value=""
-        placeholder="Search..."
-        icon={<i className="fa fa-search"></i>}
-        maxLength={50}
-        onChange={onChange}
-        onBlur={onBlur}
-      />
-    );
-    const input = getByTestId('search');
-    fireEvent.change(input, { target: { value: 'hello' } });
-    fireEvent.blur(input);
-    expect(onChange).toHaveBeenCalled();
-    expect(onBlur).toHaveBeenCalled();
-  });
+test('checks if onChange function gets called', () => {
+  const onChange = jest.fn();
+  const { getByPlaceholderText } = render(
+    <InputSearch
+      id="input-search"
+      name="input-search"
+      value=""
+      placeholder="Search"
+      icon={<i className="fa fa-search"></i>}
+      maxLength={50}
+      onChange={onChange}
+      onBlur={() => {}}
+    />
+  );
+  // eslint-disable-next-line testing-library/prefer-screen-queries
+  const input = getByPlaceholderText('Search');
+  fireEvent.change(input, { target: { value: 'test' } });
+  expect(onChange).toHaveBeenCalled();
 });

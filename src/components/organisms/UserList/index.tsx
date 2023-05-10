@@ -1,6 +1,5 @@
 /* eslint-disable */
-
-import { useState, useMemo } from 'react';
+import { useState, useMemo , useEffect} from 'react';
 import Table from '../../atoms/Table';
 import Checkbox from '../../atoms/Checkbox';
 import PermissionLabel from '../../atoms/PermissionLabel';
@@ -9,9 +8,11 @@ import usersMockData from '../../../mockdata/usersMockData';
 import { User } from '../../../mockdata/UserType';
 import Tooltip from '../../atoms/Tooltip';
 import { ReactComponent as Detalle_usuario } from '../../../assets/img/detalle_usuario.svg';
+import { ReactComponent as Detalle_usuario2 } from '../../../assets/img/detalle_usuario2.svg';
 import { ReactComponent as Candado_bloqueado } from '../../../assets/img/candado_bloqueado.svg';
 import { ReactComponent as Candado_desbl } from '../../../assets/img/candado_desbl.svg';
 import { ReactComponent as Basurero } from '../../../assets/img/basurero.svg';
+import { ReactComponent as EliminarUsuario } from '../../../assets/img/eliminar_usuario.svg';
 import { ReactComponent as BusquedaInput } from '../../../assets/img/busqueda_input.svg';
 import {
   ListContainer,
@@ -19,6 +20,7 @@ import {
   AccionesMasivas,
   AccionesMasivasTitle,
   AccionesMasivasOptions,
+  AccionesMasivasMobileButtons,
   StyledButtonCrear,
   StyledMobileTableControls,
   ContainerTitle,
@@ -30,6 +32,8 @@ import InputSearch from '../../atoms/InputSearch';
 import { devices } from '../../../consts/devices';
 //para las vistas
 import useMediaQuery from '../../../hooks/useMediaQuery';
+import DropdownMobile from '../../atoms/DropdownMobile';
+
 const UserList = () => {
   const initialSelectedUsers = (data: User[]) => {
     const map = new Map(); //Crea un nuevo mapa vacío.
@@ -43,7 +47,6 @@ const UserList = () => {
     const selectedqty = Array.from(selectedUsers.values()).reduce(
       (acc, value) => acc + (value ? 1 : 0)
     );
-
     return selectedqty;
   };
   const [search, setSearch] = useState('');
@@ -61,6 +64,16 @@ const UserList = () => {
   //console.log(`matchesTablet :${matchesTablet}`)
   const matchesDesktop = useMediaQuery(`(max-width:${devices.desktop})`);
 
+  useEffect(
+    ()=>{
+      const $scroll: HTMLElement | null  = document.querySelector('.ScrollbarsCustom');
+      if(!$scroll) return;
+      $scroll.style.overflowY='scroll'
+      $scroll.style.overflowX='visible'
+      
+    },
+  )
+
   const handleSearchChange = (e: any) => {
     setSearch(e.target.value);
     console.log(search);
@@ -75,7 +88,7 @@ const UserList = () => {
         .toLowerCase()
         .includes(search.toLowerCase())
   );
-
+  
   const rows = useMemo(
     () =>
       filteredUsers.map(({ id, name, rut, permisos, enabled }) => {
@@ -178,7 +191,24 @@ const UserList = () => {
                 </span>
               </div>
             ),
-            Acciones: <span>...</span>,
+            Acciones: (
+              <DropdownMobile
+                items={[
+                  {
+                    icon: <Detalle_usuario2 />,
+                    label: 'Detalle Usuario',
+                  },
+                  {
+                    icon: enabled ? <Candado_desbl /> : <Candado_bloqueado />,
+                    label: enabled ? 'Bloquear usuario' : 'Desbloquear usuario',
+                  },
+                  {
+                    icon: <EliminarUsuario />,
+                    label: 'Eliminar Usuario',
+                  },
+                ]}
+              />
+            ),
           };
         }
         return {
@@ -285,8 +315,9 @@ const UserList = () => {
   return (
     <>
       <ContainerTitle>
-        <h2>Administrar usuarios</h2>
-        <h3>Revisa y edita tus usuarios</h3>
+        <h1>Administrar usuarios</h1>
+
+        <h2>Revisa y edita tus usuarios</h2>
       </ContainerTitle>
       <Wrapper>
         <ListContainer>
@@ -316,7 +347,8 @@ const UserList = () => {
             )}
           </StyledMobileTableControls>
           <Scrollbar
-            style={{ width: '100%', height: '80%' }}
+            style={{ width: '100%', height: '80%'}}
+            mobileNative={true}
             trackYProps={{
               renderer: (props) => {
                 const { elementRef, ...restProps } = props;
@@ -354,7 +386,7 @@ const UserList = () => {
           ) : null}
 
           <StyledButtonCrear>
-            <Button variant="contained" level="n2">
+            <Button variant="contained" level="n3">
               Crear nuevo usuario
             </Button>
           </StyledButtonCrear>
@@ -365,6 +397,7 @@ const UserList = () => {
             <>
               <AccionesMasivasTitle>Acciones Masivas</AccionesMasivasTitle>
               <AccionesMasivasOptions>
+
                 <Tooltip
                   content={'Desbloquear usuario'}
                   arrowOrientation="bottom"
@@ -375,14 +408,18 @@ const UserList = () => {
                   <Basurero />
                 </Tooltip>
               </AccionesMasivasOptions>
-
-              <Button variant="contained" level="n2">
-                Autorizar
-              </Button>
+              <AccionesMasivasMobileButtons>
+                <Button variant="contained" level="n2">
+                  Rechazar
+                </Button>
+                <Button variant="contained" level="n3">
+                  Autorizar
+                </Button>
+              </AccionesMasivasMobileButtons>
             </>
           ) : (
             <CardActions>
-              <Button variant="contained" level="n2">
+              <Button variant="contained" level="n3">
                 Crear nuevo usuario
               </Button>
             </CardActions>

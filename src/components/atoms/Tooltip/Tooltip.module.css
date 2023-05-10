@@ -46,6 +46,10 @@
   left: 42%;
   transform: translateX(-42%) ;
   bottom: 160%;
+  -webkit-transform: translateX(-42%) ;
+  -moz-transform: translateX(-42%) ;
+  -ms-transform: translateX(-42%) ;
+  -o-transform: translateX(-42%) ;
 }
 .tooltipArrowBottom:before {
   left: 42%;
@@ -108,3 +112,21 @@
   }
 }
 /* #000512 */
+@media screen and (max-width: 375px) {
+  .tooltipArrowBottom{
+    left: 42%;
+    transform: translateX(-80%) ;
+    bottom: 160%;
+    /* -webkit-transform: translateX(-42%) ;
+    -moz-transform: translateX(-42%) ;
+    -ms-transform: translateX(-42%) ;
+    -o-transform: translateX(-42%) ; */
+  }
+  .tooltipArrowBottom:before {
+    left: 80%;
+    bottom: 0;
+    border-bottom: 0;
+    border-top: 12px solid #56504c;
+    transform: translate(-50%, 100%);
+  }
+}

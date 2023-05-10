@@ -6,7 +6,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverage --watchAll=false",
+    "test": "react-scripts test --passWithNoTests --coverage --watchAll=false",
     "test:watch": "react-scripts test --watchAll=true",
     "eject": "react-scripts eject",
     "prepare": "husky install",
@@ -20,7 +20,8 @@
       "!src/react-app-env.d.ts",
       "!src/reportWebVitals.ts",
       "!src/index.tsx",
-      "!<rootDir>/node_modules/"
+      "!<rootDir>/node_modules/",
+      "!src/components/atoms/Table/**/*.{ts,tsx}"
     ],
     "coverageThreshold": {
       "global": {

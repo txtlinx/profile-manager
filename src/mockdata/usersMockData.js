@@ -1,4 +1,3 @@
-
 const usersMockData = [
   {
     id: 1,
@@ -10,14 +9,14 @@ const usersMockData = [
   {
     id: 2,
     name: 'Leslie Romero Ahumada',
-    rut: '13.545.433-6',
+    rut: '14.545.433-6',
     permisos: [1, 2],
     enabled: false,
   },
   {
     id: 3,
     name: 'Alma Gonzalez Novoa',
-    rut: '13.545.433-6',
+    rut: '15.545.433-6',
     permisos: [1, 2],
     enabled: true,
   },

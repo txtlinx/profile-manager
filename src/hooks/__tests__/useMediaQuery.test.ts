@@ -3,7 +3,7 @@ import useMediaQuery from '../useMediaQuery';
 
 test('useMediaQuery returns true when the query matches', () => {
   // Mock window.matchMedia to return true
-  window.matchMedia = jest.fn().mockImplementation(query => ({
+  window.matchMedia = jest.fn().mockImplementation((query) => ({
     matches: true,
     media: query,
     addListener: jest.fn(),
@@ -12,6 +12,22 @@ test('useMediaQuery returns true when the query matches', () => {
 
   // Render the hook with a query
   const { result } = renderHook(() => useMediaQuery('(min-width: 800px)'));
+
+  // Expect the hook to return true
+  expect(result.current).toBe(true);
+});
+
+test('useMediaQuery returns true when the query matches in mobile', () => {
+  // Mock window.matchMedia to return true
+  window.matchMedia = jest.fn().mockImplementation((query) => ({
+    matches: !false,
+    media: query,
+    addListener: jest.fn(),
+    removeListener: jest.fn(),
+  }));
+
+  // Render the hook with a query
+  const { result } = renderHook(() => useMediaQuery('(min-width: 375px)'));
 
   // Expect the hook to return true
   expect(result.current).toBe(true);

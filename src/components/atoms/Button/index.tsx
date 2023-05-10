@@ -1,4 +1,3 @@
-
 import style from './Button.module.css';
 
 import { ButtonProps } from './Button.types';

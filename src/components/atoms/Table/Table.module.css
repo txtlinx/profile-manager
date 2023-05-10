@@ -30,6 +30,13 @@
 {
     padding: 20px 10px;
 }
+
+
+@media screen and (max-width: 768px){
+    .Table{
+        padding: 40px;
+    }    
+}
 @media screen and (max-width: 375px) {
     .Table{
         padding:2px;
