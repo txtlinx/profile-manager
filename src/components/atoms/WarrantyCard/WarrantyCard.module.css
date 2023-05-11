@@ -5,16 +5,31 @@
     box-shadow: 0px 1px 2px rgba(91, 81, 73, 0.2);
     border-radius: 8px;
     width:100%;
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;   
+    gap:15px;
 }
 .WarrantyCard img{
-    margin-bottom: 24px;
+    margin-bottom: 12px;
+    width:28px;
+    height:36px;
 }
 .WarrantyCard h3{
-    margin-bottom: 8px;
     font-size: 24px;
 }
 .WarrantyCard p{
-    margin-bottom: 75px;
     font-size: 14px;
     color:#43484C;
+}
+
+.WarrantyCard .ButtonContainer{
+    bottom: 19px;
+}
+
+@media screen and (max-width:768px){
+    .WarrantyCard h3{
+        font-size:18px;
+    }
 }

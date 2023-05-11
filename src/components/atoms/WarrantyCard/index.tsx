@@ -16,7 +16,9 @@ const WarrantyCard=({icon,title,description,onClick}:WarrantyCardProps)=>{
             <img src={icon} alt={'icon'}/>
             <h3>{title}</h3>
             <p>{description}</p>
-            <Button onClick={onClick}>Comenzar</Button>
+            <div className={styles.ButtonContainer}>
+                <Button onClick={onClick}>Comenzar</Button>
+            </div>
         </div>
     )
 }

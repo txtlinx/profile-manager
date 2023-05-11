@@ -7,6 +7,7 @@
     justify-content: space-between;
     padding-left:32px;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1), 0px 2px 6px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
 }
 .Background{
     position: absolute;
@@ -18,6 +19,7 @@
 .Content{
     position: relative;
     width:50%;
+    min-width:400px;
     z-index:1;
 }
 .Title{
@@ -37,6 +39,7 @@
     left:0;
 }
 .imageContainer{
+    width:40%;
     height:100%;
     z-index: 1;
 }
@@ -44,4 +47,34 @@
     width:100%;
     height:100%;
     object-fit: cover;
+    object-position: top center;
+}
+
+@media screen and (max-width:1024px){
+    .Banner{
+        height:240px;
+    }
+}
+
+@media screen and (max-width:768px){
+    .imageContainer{
+        display: none;
+    }
+    .Content{
+        width:auto;
+        min-width:initial;
+    }
+    .Banner{
+        padding:0 16px;
+    }
+    .Title{
+        margin-top: 43px;
+    }
+    .Title h1{
+        font-size: 24px;
+    }
+    .Background{
+        position: absolute;
+        transform: scale(2)
+    }
 }

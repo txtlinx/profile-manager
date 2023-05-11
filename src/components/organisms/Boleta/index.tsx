@@ -1,5 +1,6 @@
 /* eslint-disable */
 import imgClients from '../../../assets2/imgClients.svg';
+import imgFondo from '../../../assets2/imgFondo.svg';
 import fondoLineas from '../../../assets2/fondo_lineas.svg';
 import solicitudCargaMasiva from '../../../assets2/solicitud_CargaMasiva.svg';
 import documento from '../../../assets2/documento.svg';
@@ -16,7 +17,7 @@ const Boleta = () => {
       <Banner
         title="Boletas de Garantía"
         description="Cuenta con financiamiento acorde a las necesidades y dinámicas propias de tu negocio, con la flexibilidad que requieres."
-        picture={imgClients}
+        picture={imgFondo}
         background={fondoLineas}
       />{' '}
       <h2>¿Qué deseas realizar hoy?</h2>
