@@ -16,7 +16,7 @@ const Boleta = () => {
     <BoletaStyled>
       <Banner
         title="Boletas de Garantía"
-        description="Cuenta con financiamiento acorde a las necesidades y dinámicas propias de tu negocio, con la flexibilidad que requieres."
+        description="Autogestiona la solicitud de Boletas de Garantía en modalidad individual o por carga masiva. Además, haz seguimiento en línea del estado de tu boleta y vale vista 24/7."
         picture={imgFondo}
         background={fondoLineas}
       />{' '}
@@ -26,21 +26,25 @@ const Boleta = () => {
           icon={documento}
           title={'Solicitud boletas de garantía individual'}
           description={'Realiza la solicitud de tus boletas e ingresa una cuenta de cargo, en simples pasos.'}
+          button
         />
         <WarrantyCard
           icon={solicitudCargaMasiva}
           title={'Solicitud de carga masiva boleta de garantía'}
           description={'El proceso de carga masiva, permite mediante el ingreso de un archivo de carga en formato excel o txt poder gestionar en forma simultánea múltiples boletas de garantía.'}
+          button
         />
         <WarrantyCard
           icon={busqueda}
           title={'Consultar boletas emitidas '}
           description={'Puedes consultar las boletas que están en stock vigente y revisar la gestión de las boletas que se están solicitando.'}
+          button
         />
         <WarrantyCard
           icon={busqueda}
           title={'Consultar boletas recibidas'}
           description={'Podrá visualizar el detalle de las boletas de garantía emitidas en Itaú en donde usted es beneficiario.'}
+          button
         />
       </OpcionesBoletas>
     </BoletaStyled>

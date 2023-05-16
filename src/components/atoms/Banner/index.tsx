@@ -1,18 +1,19 @@
 /* eslint-disable */
 import styles from './Banner.module.css';
-import { ReactNode } from 'react';
+import { ReactNode,MouseEvent } from 'react';
 import {ReactComponent as ImgIconoEsquina} from '../../../assets2/imgIconEsquina.svg';
 import {ReactComponent as FillPath} from '../../../assets2/fill.svg';
+import Button from '../Button';
 type BannerProps = {
   title: string;
   description: string;
   picture: string;
   background: string;
-
-  
+  buttonText?:string;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 };
 
-const Banner = ({ title, description, picture,background }: BannerProps) => {
+const Banner = ({ title, description, picture,background,buttonText,onClick }: BannerProps) => {
   return (
     <div className={styles.Banner}>
       <img src={background} alt={'background'} className={styles.Background}/>
@@ -22,6 +23,9 @@ const Banner = ({ title, description, picture,background }: BannerProps) => {
             <h1>{title}</h1>
         </div>
         <p>{description}</p>
+        {buttonText && <Button onClick={
+          onClick
+        }>{buttonText}</Button>}
       </div>
       <div className={styles.imageContainer}>
         <img src={picture} alt={title} />

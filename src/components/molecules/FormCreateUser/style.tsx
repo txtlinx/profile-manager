@@ -217,7 +217,7 @@ export const StyledAvisoSolido = styled(AvisoSolido)`
   & {
     margin-right: 5px;
   }
-  . & path {
+  & path {
     fill: #b71c1c !important;
   }
 `;

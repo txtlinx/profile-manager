@@ -6,9 +6,8 @@
     border-radius: 8px;
     width:100%;
     position: relative;
-    display:flex;
+    display:grid;
     flex-direction: column;
-    justify-content: space-between;   
     gap:15px;
 }
 .WarrantyCard img{
@@ -25,7 +24,7 @@
 }
 
 .WarrantyCard .ButtonContainer{
-    bottom: 19px;
+    align-self: end;
 }
 
 @media screen and (max-width:768px){

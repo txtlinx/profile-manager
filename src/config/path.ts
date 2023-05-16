@@ -4,6 +4,7 @@ export const applicationPaths = {
   basePath: `/profile-manager`,
   home: `/`,
   boleta: `boleta`,
+  boletaR: `boletaR`,
   createUser: `/create-user`,
   userList: `/user-list`,
   accounts: `${REACT_APP_HOME_MF_URL}/cuentas`,

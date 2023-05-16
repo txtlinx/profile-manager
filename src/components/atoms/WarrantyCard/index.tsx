@@ -7,18 +7,19 @@ type WarrantyCardProps = {
     icon: string,
     title: string,
     description: string,
+    button?:boolean,
     onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-const WarrantyCard=({icon,title,description,onClick}:WarrantyCardProps)=>{
+const WarrantyCard=({icon,title,description,button,onClick}:WarrantyCardProps)=>{
     return (
         <div className={styles.WarrantyCard}>
             <img src={icon} alt={'icon'}/>
             <h3>{title}</h3>
             <p>{description}</p>
-            <div className={styles.ButtonContainer}>
+            {button && <div className={styles.ButtonContainer}>
                 <Button onClick={onClick}>Comenzar</Button>
-            </div>
+            </div>}
         </div>
     )
 }
