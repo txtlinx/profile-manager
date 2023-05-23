@@ -18,12 +18,12 @@ export const CardNewUserForm = styled.div<CardNewUserFormProps>`
   //height: ${(props) => (props.height ? `${props.height}px` : 'fit-content')};
   background: #ffffff;
   flex-grow: 0;
-  @media screen and (max-width: ${devices.tablet}) {
+ /*  @media screen and (max-width: ${devices.tablet}) {
     & {
       width: 98%;
       padding: 0px;
     }
-  }
+  } */
 `;
 export const CardUserData = styled.div`
   background-color: white;
@@ -43,12 +43,18 @@ export const CardUserData = styled.div`
   }
   h3 {
     margin-bottom: 24px;
+    font-weight: 400;
+    /* font-family: 'Itau Display Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px; */
   }
-  @media screen and (max-width: ${devices.tablet}) {
+  /* @media screen and (max-width: ${devices.tablet}) {
     & {
       padding: 16px;
     }
-  }
+  } */
 `;
 
 export const FixedFormrow = styled.div`

@@ -10,7 +10,7 @@ import {
   validateLengthAndCharactersInRut,
   validateRut,
 } from '../../../utils/rut';
-
+import { InputRef } from '../../atoms/Input/types';
 import { labels } from '../../../consts/labels';
 import {
   CardNewUserForm,
@@ -59,7 +59,11 @@ interface Checkboxes {
   usersAdmin: boolean;
 }
 
-const FormContactUser = () => {
+type Props ={
+  refFocus: React.RefObject<InputRef>;
+}
+
+const FormContactUser = ({refFocus}:Props) => {
   const [user, setUser] = useState<User>({
     fullname: {
       value: '',
@@ -267,6 +271,7 @@ const FormContactUser = () => {
           errorMessage={user.fullname.error}
           icon={user.fullname.error ? <StyledAvisoSolido /> : null}
           maxLength={50}
+          ref={refFocus}
           onChange={(e) => {
             handleInputChange('fullname', e.target.value);
           }}
