@@ -16,7 +16,7 @@ const Boleta = () => {
     <BoletaStyled>
       <Banner
         title="Boletas de Garantía"
-        description="Autogestiona la solicitud de Boletas de Garantía en modalidad individual o por carga masiva. Además, haz seguimiento en línea del estado de tu boleta y vale vista 24/7."
+        description="Accede a un financiamiento flexible, de acuerdo con las necesidades y dinámicas propias de tu negocio.."
         picture={imgFondo}
         background={fondoLineas}
       />{' '}

@@ -30,6 +30,21 @@ export const Beneficios = styled.div`
     display:flex;
     flex-direction:column;
     gap:10px;
+    @media screen and (max-width: ${devices.tablet}) {
+        background:transparent;
+        article{
+            height:200px;
+            width:250px;
+            margin-left:6px;
+        }      
+    }
+    @media screen and (max-width: ${devices.mobile}) {
+        background:transparent;
+        article{
+            height:200px;
+            margin:0;
+        }
+    }
 
 `
 export const TextoBeneficios = styled.span`
@@ -39,6 +54,7 @@ color: #56504C;
 
 
 export const BeneficiosContainer = styled.div`
+
     display:grid;
     grid-template-columns: repeat(4,1fr);
     gap:21px;
@@ -49,20 +65,41 @@ export const BeneficiosContainer = styled.div`
     }
 `
 
-export const Grid = styled.div`
-    display:grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: fit-content 1fr;
-    column-gap:32px;
-    @media screen and (max-width: ${devices.tablet}) {
-        grid-template-columns: auto;
-        grid-template-rows: fit-content 1fr;
+export const FullContainer = styled.div`
+    display:flex;
+    width:100%;
+    gap:24px;
+    margin-top:24px;
+    @media screen and (max-width: 630px) {
+        flex-direction:column;
+        align-items:center;
     }
 `
 export const Requisitos = styled.div`
+
     display:flex;
     flex-direction:column;
-    gap:22px;
+    gap:17px;
+    
+`
+
+export const FormContainer = styled.div`
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+    h2{
+        margin:0;
+    }
+`
+
+export const RequisitosContainer = styled.div`
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+    width:100%;
+    h2{
+        margin:0;
+    }
 `
 //26px Requisitos
 

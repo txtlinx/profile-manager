@@ -15,6 +15,7 @@ export const CardNewUserForm = styled.div<CardNewUserFormProps>`
   padding: 24px;
   gap: 32px;
   width: 346px;
+  height: 100%;
   //height: ${(props) => (props.height ? `${props.height}px` : 'fit-content')};
   background: #ffffff;
   flex-grow: 0;
