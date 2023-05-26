@@ -10,6 +10,7 @@ import Banner from '../../atoms/Banner';
 import WarrantyCard from '../../atoms/WarrantyCard';
 
 import { BoletaStyled, OpcionesBoletas } from './styles';
+import { labels } from '../../../consts/labels';
 
 const Boleta = () => {
   return (
@@ -25,13 +26,13 @@ const Boleta = () => {
         <WarrantyCard
           icon={documento}
           title={'Solicitud boletas de garantía individual'}
-          description={'Realiza la solicitud de tus boletas e ingresa una cuenta de cargo, en simples pasos.'}
+          description={labels.WARRANTYCARD.B_INDIVIDUAL}
           button
         />
         <WarrantyCard
           icon={solicitudCargaMasiva}
           title={'Solicitud de carga masiva boleta de garantía'}
-          description={'El proceso de carga masiva, permite mediante el ingreso de un archivo de carga en formato excel o txt poder gestionar en forma simultánea múltiples boletas de garantía.'}
+          description={labels.WARRANTYCARD.S_MASIVA}
           button
         />
         <WarrantyCard

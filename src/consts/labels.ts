@@ -1,3 +1,4 @@
+/* eslint-disable */
 export const labels = {
   SETUP: 'Configurar',
   SUMMARYBALANCE: {
@@ -101,4 +102,13 @@ export const labels = {
       'Debes informar al nuevo usuario que recibirá un correo con instrucciones para ingresar al sitio y crear su clave.',
     FORM_BUTTON: 'Crear Usuario',
   },
+  BANNER: {
+    TITLE:
+      'Autogestiona la solicitud de Boletas de Garantía en modalidad individual o por carga masiva. Además, haz seguimiento en línea del estado de tu boleta y vale vista 24/7.',
+  },
+  WARRANTYCARD: {
+    B_INDIVIDUAL: 
+    'Realiza la solicitud de tus boletas e ingresa una cuenta de cargo, en simples pasos.',
+    S_MASIVA: 'Cárgalas en formato Excel o txt y gestiónalas simultáneamente.'
+  }
 };

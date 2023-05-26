@@ -32,18 +32,7 @@ export const Beneficios = styled.div`
     gap:10px;
     @media screen and (max-width: ${devices.tablet}) {
         background:transparent;
-        article{
-            height:200px;
-            width:250px;
-            margin-left:6px;
-        }      
-    }
-    @media screen and (max-width: ${devices.mobile}) {
-        background:transparent;
-        article{
-            height:200px;
-            margin:0;
-        }
+        padding:0;
     }
 
 `
@@ -63,6 +52,7 @@ export const BeneficiosContainer = styled.div`
         grid-template-columns: repeat(2,1fr);
         grid-template-rows: repeat(2,1fr);
     }
+
 `
 
 export const FullContainer = styled.div`

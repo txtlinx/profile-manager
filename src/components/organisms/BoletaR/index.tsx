@@ -24,6 +24,7 @@ import {
 import { InputRef } from '../../atoms/Input/types';
 import useMediaQuery from '../../../hooks/useMediaQuery';
 import { devices } from '../../../consts/devices';
+import { labels } from '../../../consts/labels';
 const BoletaR = () => {
   const inputRef = useRef<InputRef>(null);
   const matchesMobile = useMediaQuery(`(max-width:${devices.tablet})`);
@@ -32,7 +33,7 @@ const BoletaR = () => {
     <BoletaStyled>
       <Banner
         title="Boletas de Garantía"
-        description="Autogestiona la solicitud de Boletas de Garantía en modalidad individual o por carga masiva. Además, haz seguimiento en línea del estado de tu boleta y vale vista 24/7."
+        description={labels.BANNER.TITLE}
         picture={imgFondo}
         background={fondoLineas}
         buttonText="Me interesa"
@@ -97,7 +98,7 @@ const BoletaR = () => {
             <WarrantyCard
               icon={sucursal}
               title={'Sucursal cercana'}
-              description={'Escoge la sucursal para retirar los documentos.'}
+              description={'Contrato Línea de Crédito para Boletas de Garantía, Multiboleta y Pagaré paraguas Boletas de Garantía multimoneda.'}
             />
             ]}
           />
