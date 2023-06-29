@@ -1,8 +1,8 @@
 /* eslint-disable */
 import styles from './Banner.module.css';
 import { ReactNode,MouseEvent } from 'react';
-import {ReactComponent as ImgIconoEsquina} from '../../../assets2/imgIconEsquina.svg';
-import {ReactComponent as FillPath} from '../../../assets2/fill.svg';
+import {ReactComponent as ImgCorner} from '../../../assets/img/imgCorner.svg';
+import {ReactComponent as FillPath} from '../../../assets/fill.svg';
 import Button from '../Button';
 type BannerProps = {
   title: string;
@@ -19,7 +19,7 @@ const Banner = ({ title, description, picture,background,buttonText,onClick }: B
       <img src={background} alt={'background'} className={styles.Background}/>
       <div className={styles.Content}>
         <div className={styles.Title}>
-            <ImgIconoEsquina className={styles.Esquina}/>
+            <ImgCorner className={styles.Corner}/>
             <h1>{title}</h1>
         </div>
         <p>{description}</p>

@@ -7,6 +7,7 @@ type DotProps={
 
 const Dot =({selected}:DotProps)=>{
     const cssClassName= `${styles.Dot} ${selected?styles.selected:''}`
+    console.log(cssClassName)
     return(
         <li className={cssClassName}></li>
     )

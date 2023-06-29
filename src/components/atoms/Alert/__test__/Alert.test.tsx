@@ -1,7 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import Alert from '../index';
 
-
 describe('<Alert />', () => {
   test('Render component', () => {
     render(

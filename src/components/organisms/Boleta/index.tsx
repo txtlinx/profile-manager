@@ -1,9 +1,9 @@
 /* eslint-disable */
 import imgClients from '../../../assets2/imgClients.svg';
-import imgFondo from '../../../assets2/imgFondo.svg';
-import fondoLineas from '../../../assets2/fondo_lineas.svg';
+import imgBackground from '../../../assets2/imgBackground.svg';
+import linesBackground from '../../../assets2/linesBackground.svg';
 import solicitudCargaMasiva from '../../../assets2/solicitud_CargaMasiva.svg';
-import documento from '../../../assets2/documento.svg';
+import document from '../../../assets2/document.svg';
 import busqueda from '../../../assets2/busqueda.svg';
 
 import Banner from '../../atoms/Banner';
@@ -18,13 +18,13 @@ const Boleta = () => {
       <Banner
         title="Boletas de Garantía"
         description="Accede a un financiamiento flexible, de acuerdo con las necesidades y dinámicas propias de tu negocio.."
-        picture={imgFondo}
-        background={fondoLineas}
+        picture={imgBackground}
+        background={linesBackground}
       />{' '}
       <h2>¿Qué deseas realizar hoy?</h2>
       <OpcionesBoletas>
         <WarrantyCard
-          icon={documento}
+          icon={document}
           title={'Solicitud boletas de garantía individual'}
           description={labels.WARRANTYCARD.B_INDIVIDUAL}
           button

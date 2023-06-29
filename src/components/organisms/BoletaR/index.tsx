@@ -1,7 +1,7 @@
 /* eslint-disable */
 import imgClients from '../../../assets2/imgClients.svg';
-import imgFondo from '../../../assets2/imgFondo.svg';
-import fondoLineas from '../../../assets2/fondo_lineas.svg';
+import imgBackground from '../../../assets2/imgBackground.svg';
+import linesBackground from '../../../assets2/linesBackground.svg';
 import reloj from '../../../assets2/reloj.svg';
 import ubicacion from '../../../assets2/ubicacion.svg';
 import info from '../../../assets2/info.svg';
@@ -34,8 +34,8 @@ const BoletaR = () => {
       <Banner
         title="Boletas de Garantía"
         description={labels.BANNER.TITLE}
-        picture={imgFondo}
-        background={fondoLineas}
+        picture={imgBackground}
+        background={linesBackground}
         buttonText="Me interesa"
         onClick={() => {
           inputRef.current?.focusInput();
